@@ -1,0 +1,40 @@
+def getBASIC():
+   basic=input()
+   listt=[]
+   while ("END" in basic)==False:
+      listt=listt+[basic]
+      basic=input()
+   listt=listt+[basic]
+   return listt
+      
+
+def findLine(prog,target):
+   for index in range(len(prog)):
+      a=prog[index]
+      for b in range(len(a)):
+         if a[b]==" ":
+            if a[:b]==target:
+               return index
+            
+            
+         
+    
+def execute(prog):
+  location = 0
+  counter=[0]*len(prog)
+  
+  while True:
+      b=prog[location]
+      if 2 in counter:
+         return "infinite loop"
+      if location==len(prog)-1: return "success"
+      for a in range(len(b)):
+         if b[a]=="O":
+            counter[location]=counter[location]+1
+            location = findLine(prog, b[a+4:])
+            break
+
+            
+    
+
+print(execute(getBASIC()))
